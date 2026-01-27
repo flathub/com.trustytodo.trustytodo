@@ -1,0 +1,29 @@
+id: com.trustytodo.trustytodo
+
+runtime: org.gnome.Platform
+runtime-version: '49'
+sdk: org.gnome.Sdk
+
+command: trustytodo
+finish-args:
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=network
+  - --share=ipc
+
+modules:
+  - name: trustytodo
+    buildsystem: simple
+    sources:
+      - type: file
+        url: https://github.com/TrustyTodo/trustytodo-desktop/releases/download/app-v0.1.1/TrustyTodo_0.1.1_amd64.deb
+        sha256: 9ea69d9328dd1ac04c1e59de4322101d4e37371226d01843db5f2f388128ccf9
+        only-arches: [x86_64]
+        dest-filename: trustytodo.deb
+    build-commands:
+      - bsdtar -Oxf trustytodo.deb 'data.tar.gz' | bsdtar -xf -
+      - install -Dm755 usr/bin/TrustyTodo /app/bin/trustytodo
+      - desktop-file-edit --set-icon=com.trustytodo.trustytodo usr/share/applications/TrustyTodo.desktop
+      - install -Dm644 usr/share/applications/TrustyTodo.desktop /app/share/applications/com.trustytodo.trustytodo.desktop
+      - install -Dm644 usr/share/icons/hicolor/128x128/apps/TrustyTodo.png /app/share/icons/hicolor/128x128/apps/com.trustytodo.trustytodo.png
+      - install -Dm644 usr/share/icons/hicolor/32x32/apps/TrustyTodo.png /app/share/icons/hicolor/32x32/apps/com.trustytodo.trustytodo.png
