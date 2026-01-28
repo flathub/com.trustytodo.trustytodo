@@ -4,7 +4,7 @@ runtime: org.gnome.Platform
 runtime-version: '49'
 sdk: org.gnome.Sdk
 
-command: trustytodo
+command: TrustyTodo
 finish-args:
   - --socket=wayland
   - --socket=fallback-x11
@@ -17,23 +17,20 @@ modules:
     sources:
       - type: file
         url: https://github.com/TrustyTodo/trustytodo-desktop/releases/download/app-v0.1.2/TrustyTodo_0.1.2_amd64.deb
-        sha256: 5784f8f0c333c1f8f1aa35ca5e51b3174e0937a05f45c7d07666d1d87613de26
+        sha256: 5f50b7eda59272786e2de5b63052fe773e6acfa3423ea1eb9106cc3888b70553
         only-arches: [x86_64]
         dest-filename: trustytodo.deb
       - type: file
         url: https://github.com/TrustyTodo/trustytodo-desktop/releases/download/app-v0.1.2/TrustyTodo_0.1.2_arm64.deb
-        sha256: 3f0c4d44f41a89d65217676ca5c481d8c042d65dd4439483b2ce19e836f5790b
+        sha256: a2fec3bb7b99e3c157ba19cfd7d913da6dbd90c2c35c55e267cabf99174ef148
         only-arches: [aarch64]
         dest-filename: trustytodo.deb
-      - type: file
-        path: com.trustytodo.trustytodo.metainfo.xml
-      - type: file
-        path: com.trustytodo.trustytodo.desktop
     build-commands:
       - bsdtar -Oxf trustytodo.deb 'data.tar.gz' | bsdtar -xf -
-      - install -Dm755 usr/bin/TrustyTodo /app/bin/trustytodo
+      - install -Dm755 usr/bin/TrustyTodo /app/bin/TrustyTodo
+      - desktop-file-edit --set-icon=com.trustytodo.trustytodo usr/share/applications/TrustyTodo.desktop
+      - install -Dm644 usr/share/applications/TrustyTodo.desktop /app/share/applications/com.trustytodo.trustytodo.desktop
+      - install -Dm644 usr/share/metainfo/com.trustytodo.trustytodo.metainfo.xml /app/share/metainfo/com.trustytodo.trustytodo.metainfo.xml
       - install -Dm644 usr/share/icons/hicolor/128x128/apps/TrustyTodo.png /app/share/icons/hicolor/128x128/apps/com.trustytodo.trustytodo.png
       - install -Dm644 usr/share/icons/hicolor/256x256/apps/TrustyTodo.png /app/share/icons/hicolor/256x256/apps/com.trustytodo.trustytodo.png
       - install -Dm644 usr/share/icons/hicolor/32x32/apps/TrustyTodo.png /app/share/icons/hicolor/32x32/apps/com.trustytodo.trustytodo.png
-      - install -Dm644 com.trustytodo.trustytodo.metainfo.xml /app/share/metainfo/com.trustytodo.trustytodo.metainfo.xml
-      - install -Dm644 com.trustytodo.trustytodo.desktop /app/share/applications/com.trustytodo.trustytodo.desktop
