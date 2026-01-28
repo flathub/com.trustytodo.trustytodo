@@ -16,14 +16,22 @@ modules:
     buildsystem: simple
     sources:
       - type: file
-        url: https://github.com/TrustyTodo/trustytodo-desktop/releases/download/app-v0.1.1/TrustyTodo_0.1.1_amd64.deb
-        sha256: 9ea69d9328dd1ac04c1e59de4322101d4e37371226d01843db5f2f388128ccf9
+        url: https://github.com/TrustyTodo/trustytodo-desktop/releases/download/app-v0.1.2/TrustyTodo_0.1.2_amd64.deb
+        sha256: 5784f8f0c333c1f8f1aa35ca5e51b3174e0937a05f45c7d07666d1d87613de26
         only-arches: [x86_64]
         dest-filename: trustytodo.deb
+      - type: file
+        url: https://github.com/TrustyTodo/trustytodo-desktop/releases/download/app-v0.1.2/TrustyTodo_0.1.2_arm64.deb
+        sha256: 3f0c4d44f41a89d65217676ca5c481d8c042d65dd4439483b2ce19e836f5790b
+        only-arches: [aarch64]
+        dest-filename: trustytodo.deb
+      - type: file
+        path: com.trustytodo.trustytodo.metainfo.xml
     build-commands:
       - bsdtar -Oxf trustytodo.deb 'data.tar.gz' | bsdtar -xf -
       - install -Dm755 usr/bin/TrustyTodo /app/bin/trustytodo
       - desktop-file-edit --set-icon=com.trustytodo.trustytodo usr/share/applications/TrustyTodo.desktop
       - install -Dm644 usr/share/applications/TrustyTodo.desktop /app/share/applications/com.trustytodo.trustytodo.desktop
       - install -Dm644 usr/share/icons/hicolor/128x128/apps/TrustyTodo.png /app/share/icons/hicolor/128x128/apps/com.trustytodo.trustytodo.png
+      - install -Dm644 usr/share/icons/hicolor/256x256/apps/TrustyTodo.png /app/share/icons/hicolor/256x256/apps/com.trustytodo.trustytodo.png
       - install -Dm644 usr/share/icons/hicolor/32x32/apps/TrustyTodo.png /app/share/icons/hicolor/32x32/apps/com.trustytodo.trustytodo.png
