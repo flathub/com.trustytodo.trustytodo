@@ -27,6 +27,8 @@ modules:
         dest-filename: trustytodo.deb
       - type: file
         path: com.trustytodo.trustytodo.metainfo.xml
+      - type: file
+        path: com.trustytodo.trustytodo.desktop
     build-commands:
       - bsdtar -Oxf trustytodo.deb 'data.tar.gz' | bsdtar -xf -
       - install -Dm755 usr/bin/TrustyTodo /app/bin/trustytodo
