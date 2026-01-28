@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories=Utility;
+Comment=Manage tasks from any CalDAV server for fully private task management!
+Exec=trustytodo
+StartupWMClass=TrustyTodo
+Icon=com.trustytodo.trustytodo
+Name=TrustyTodo
+Terminal=false
+Type=Application
