@@ -29,7 +29,7 @@ modules:
         path: com.trustytodo.trustytodo.metainfo.xml
     build-commands:
       - bsdtar -Oxf trustytodo.deb 'data.tar.gz' | bsdtar -xf -
-      - install -Dm755 usr/bin/TrustyTodo /app/bin/trustytodo
+      - install -Dm755 usr/bin/TrustyTodo /app/bin/TrustyTodo
       - desktop-file-edit --set-icon=com.trustytodo.trustytodo usr/share/applications/TrustyTodo.desktop
       - install -Dm644 usr/share/applications/TrustyTodo.desktop /app/share/applications/com.trustytodo.trustytodo.desktop
       - install -Dm644 usr/share/icons/hicolor/128x128/apps/TrustyTodo.png /app/share/icons/hicolor/128x128/apps/com.trustytodo.trustytodo.png
