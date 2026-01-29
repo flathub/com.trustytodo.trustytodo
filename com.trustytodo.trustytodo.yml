@@ -16,13 +16,13 @@ modules:
     buildsystem: simple
     sources:
       - type: file
-        url: https://github.com/TrustyTodo/trustytodo-desktop/releases/download/app-v0.1.2/TrustyTodo_0.1.2_amd64.deb
-        sha256: 5f50b7eda59272786e2de5b63052fe773e6acfa3423ea1eb9106cc3888b70553
+        url: https://github.com/TrustyTodo/trustytodo-desktop/releases/download/app-v0.1.3/TrustyTodo_amd64_linux.deb
+        sha256: 173144a0e843d7440046f50fc798dcc2de787f0f5d6fc18b9d5fd2c50323eaac
         only-arches: [x86_64]
         dest-filename: trustytodo.deb
       - type: file
-        url: https://github.com/TrustyTodo/trustytodo-desktop/releases/download/app-v0.1.2/TrustyTodo_0.1.2_arm64.deb
-        sha256: a2fec3bb7b99e3c157ba19cfd7d913da6dbd90c2c35c55e267cabf99174ef148
+        url: https://github.com/TrustyTodo/trustytodo-desktop/releases/download/app-v0.1.3/TrustyTodo_arm64_linux.deb
+        sha256: ea35afe8fbbf8eb5ecd30436a9b84d0e7d2f986d0125735f4012cc20363712e8
         only-arches: [aarch64]
         dest-filename: trustytodo.deb
     build-commands:
