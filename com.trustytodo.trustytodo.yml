@@ -3,7 +3,8 @@ id: com.trustytodo.trustytodo
 runtime: org.gnome.Platform
 runtime-version: '49'
 sdk: org.gnome.Sdk
-
+tags: 
+  - proprietary
 command: TrustyTodo
 finish-args:
   - --socket=wayland
